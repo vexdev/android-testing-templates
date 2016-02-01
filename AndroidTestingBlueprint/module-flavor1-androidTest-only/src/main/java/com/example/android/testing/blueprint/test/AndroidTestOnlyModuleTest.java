@@ -19,6 +19,7 @@ package com.example.android.testing.blueprint.test;
 import android.content.Context;
 import android.support.test.runner.AndroidJUnit4;
 import android.test.suitebuilder.annotation.MediumTest;
+import android.test.mock.MockContentResolver;
 
 import com.example.android.testing.blueprint.R;
 
@@ -50,6 +51,7 @@ public class AndroidTestOnlyModuleTest {
 
     @Test
     public void verifyResourceString() {
+	MockContentResolver resolver = new MockContentResolver();
         assertThat(mContext.getString(R.string.hello_from_the_test_only_module),
                 is(equalTo("Hello from the test only module!")));
     }
